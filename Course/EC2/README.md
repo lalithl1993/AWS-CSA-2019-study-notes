@@ -223,20 +223,26 @@ Some notes about placement groups:
 * You can't move an existing instance into a placement group.
 * If the exam refers to placement groups, without mentioning which type, it's most probably talking about the Cluster ones since those are the old ones.
 
-## [EFS](https://aws.amazon.com/efs/)
+## [EFS](https://aws.amazon.com/efs/) (similar to network drive)
 
 Amazon EFS provides scalable file storage for use with Amazon EC2. You can create an EFS file system and configure your instances to mount the file system
 
+* multiple EC2 instance can share 1 EFS.. but EBS and ec2 are 1 to 1 mapping.
 * Supports NFSv4.
 * You only pay for the storage you use.
 * Scale up to petabytes.
 * Can support thousands of concurrent connections.
 * Data is stored across multiple AZ.
 * Read after write consistency.
-
 * You need to make sure that the EC2 instance that needs to connect with the EFS volume, is associated with the same security group you have on the EFS volume.
 * You can assign permissions at the file level and at the folder level.
+* - t should be treated sililar to Ec2(all network) with properties of S3. port : 2049 (to be enabled in security grp).
+* - EFS and its mount targets get created within a few moments
+* - encryption can be done "in transit"(ssl,during mounting using mount helper) and "at rest"(it can be done only during creation).
+* - 2 performance modes : general purpose and Max IO
+* - 2 performance modes : //todo should study
 
+eg: add website in one efs and it can be deployed in multiple ec2
 ## [Lambda](https://aws.amazon.com/lambda/)
 
 AWS Lambda lets you run code without provisioning or managing servers. You pay only for the compute time you consume - there is no charge when your code is not running.
@@ -246,8 +252,17 @@ You can use lambda in two ways:
 
 * Event-driven based: Lambda runs your code based on events, such, new file on S3 or a new alarm on cloudwatch
 * Compute-service based: Lambda runs your code based on HTTP requests using an API Gateway or API calls made using AWS SDKs.
+*- lambda boulds to vpc and network restrictions
+*- //todo list of services lambda can be used in
+*- //todo practically use lambda
+*- //todo learn deadletter q
+*- lambda can have VPC or no VPC mode.
+*- lambda can have temp storage of 512 mb.input(3mb) + output(3mb) data = 6mb
+*- recieve message call lambda limit ios 10 at a time.
+*- old and new version of code runs for breef amount of time after code update.(arn changes)
 
 AWS lambda, supports: C#, Node.js, Python, and Java
+
 
 Lambda is charged as follow:
 

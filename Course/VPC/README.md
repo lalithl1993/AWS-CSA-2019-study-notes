@@ -58,11 +58,12 @@ Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolate
 
 ![vpc&NACL](https://docs.aws.amazon.com/vpc/latest/userguide/images/security-diagram.png)
 
+* one subnet can be associated with only 1 NACL but 1NACL can be associated with multiple subnets.
 * NACL cannot be deployed in multiple VPCs.
 * NACL cannot be attached to multiple subnets, only one at the time.
 * Each subnet must be associated with a network ACL, if you don't, default NACL will be used.
 * By default when you create one NACL, everything is denied.
-* Rules are applied in numerical order (starting from the lowest), so when you should create the first rule having number 100 and add others on incremental of 100
+* Rules are applied in numerical order (starting from the lowest), so when you should create the first rule having number 100 and add others on incremental of 100 (//rule with lower number takes higher precedence)
 * NACL are **stateless** (opposite of Security Groups)
 * Remember to open [ephemaral ports](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html#nacl-ephemeral-ports) on your outbound rules only.
 * If you have to block specific IP addresses, use network ACL not Security Groups
@@ -78,3 +79,9 @@ VPC Flow Logs is a feature that enables you to capture information about the IP 
 ### [VPC Enpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html)
 
 A VPC endpoint enables you to privately connect your VPC to supported AWS services and VPC endpoint services powered by PrivateLink without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection.
+
+
+
+
+Activity to explore:
+associate 2 sec grp to single instance with diff in and out bound rules and explore behaviour(precidence, order of association, etc )

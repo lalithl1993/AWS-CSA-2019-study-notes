@@ -46,10 +46,16 @@ Amazon Elastic Transcoder a is media transcoding service.
 
 Amazon API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale.
 
+//todo practically create few gateways for brtter understanding\
 * You can enable cache
 * Scaled automatically
 * You can throttle requests
 * Connect to CloudWatch to log all requests.
+*- //todo learn access policies
+*- //todo learn more on settings
+*- //todo default security provided in api g
+*- //todo cashing options
+
 
 ## [Kinesis](https://aws.amazon.com/kinesis/)
 
