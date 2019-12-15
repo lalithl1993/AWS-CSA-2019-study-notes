@@ -51,7 +51,11 @@ Amazon API Gateway is a fully managed service that makes it easy for developers 
 * Scaled automatically
 * You can throttle requests
 * Connect to CloudWatch to log all requests.
+
+*- VPC link is used (with vpc enpoints(eg s3 endpoint)) to access resourcses privatly(without internet) with in AWS VPC(works with direct connect as well)
+* -uses iam policies for access control..
 *- //todo learn access policies
+
 *- //todo learn more on settings
 *- //todo default security provided in api g
 *- //todo cashing options

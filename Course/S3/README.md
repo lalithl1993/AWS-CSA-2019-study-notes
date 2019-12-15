@@ -72,6 +72,7 @@ S3 is charged for:
 
 * Control access to the bucket using bucket ACL or Bucket policies
 * By default all buckets and objects within are private
+* - kms is restricted to region
 
 ### [S3 Version Control](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html)
 
@@ -139,6 +140,7 @@ Only creations and modifications are replicated to the bucket in the other regio
 
 ### [Amazon Storage Gateway](https://aws.amazon.com/storagegateway/)
 
+//todo: study again
 What's an Amazon Storage Gateway: AWS Storage Gateway connects an on-premises software appliance with cloud-based storage to provide seamless integration with data security features between your on-premises IT environment and the AWS storage infrastructure.
 
 * File Gateway: For flat files, stored directly in S3. You can NFS Mount points

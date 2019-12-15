@@ -59,3 +59,7 @@ Security:
 * Monitor metrics across the system.
 * Automate responses to metrics where appropriate
 * Provide alerts for anomalous conditions
+
+### AWS Budgets
+
+* used to set custom costs and usage budgets

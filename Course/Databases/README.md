@@ -80,6 +80,8 @@ Amazon DynamoDB is a key-value and document database that delivers single-digit 
 * It's scalable.
 * DynamoDB can be very expensive for writes.
 
+*- DynamoDB streams for producing events(with data) when anything changes in table. these events can be consumed by lambda.
+
 ### [Redshift](https://aws.amazon.com/redshift/)
 
 Amazon Redshift is a fast, scalable data warehouse that makes it simple and cost-effective to analyze all your data across your data warehouse.

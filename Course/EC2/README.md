@@ -23,6 +23,8 @@ Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides secure,
 
 * [Dedicated Hosts](https://aws.amazon.com/ec2/dedicated-hosts/): Is a physical server with EC2 instance capacity fully dedicated to your use.
 
+
+*- VM imports for importing existing vms to aws
 ### [What's EBS](https://aws.amazon.com/ebs/)
 
 Provides persistent block storage volumes for use with Amazon EC2 instances in the AWS Cloud. EBS is automatically replicated in a specific AZ
@@ -140,6 +142,9 @@ My suggestion is to create 2 instances instead and change the `index.html` in so
 * Events can be used to perform actions when state changes happen in your AWS resources.
 * Logs can be aggregated in a single place to better troubleshoot. Remember that you need to install an agent on the EC2 instance.
 * By default, Matrics on EC2 instances are: CPU related, Disk related, Network related and Status check related.
+* -cloud watch can be used for monitoring errors in lambda
+* -cloud trail is encrypted by default
+* -cloud trail intigrity validation feature
 
 Remember that:
 
@@ -254,9 +259,10 @@ You can use lambda in two ways:
 * Compute-service based: Lambda runs your code based on HTTP requests using an API Gateway or API calls made using AWS SDKs.
 *- lambda boulds to vpc and network restrictions
 *- //todo list of services lambda can be used in
-*- //todo practically use lambda
-*- //todo learn deadletter q
-*- lambda can have VPC or no VPC mode.
+*- //todo practically use lambda //done
+*- client is responsible retry mechanism(lambda throw 429 error)
+*- dead letter q: messages goes to this q if wait q is full ot any other error sinarios. can push to SNS or SQS when things comes to DLQ
+*- lambda can have VPC or no VPC mode.// lambda can be associated only with private subnet of vpc. should use nat for internet
 *- lambda can have temp storage of 512 mb.input(3mb) + output(3mb) data = 6mb
 *- recieve message call lambda limit ios 10 at a time.
 *- old and new version of code runs for breef amount of time after code update.(arn changes)

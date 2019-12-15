@@ -34,3 +34,8 @@ An Az is one or more data centres, each with redundant power, networking and con
 ## Network & Content Delivery
 
 * Route 53 for Amazon DNS servers, VPC's for virtual cloud and CloudFront for CDN's
+
+
+## AWS Server Migration Services
+
+* -AWS Server Migration Services is used to migrate on premise setup on to AWS. if you are already using Hyper-v or ZEN.

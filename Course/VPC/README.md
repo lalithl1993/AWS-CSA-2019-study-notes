@@ -26,6 +26,8 @@ Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolate
 * 1 Subnet = 1 AZ
 * Security groups are Stateful, instead, Network ACLs are stateless.
 
+*- by default sg allow all outbound and no inbound traffic
+
 ### Default VPC
 
 * Amazon provides a default VPC to immediately deploy instances.
@@ -35,6 +37,10 @@ Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolate
 
 * You can peer one VPC to another VPC using private IP subnets.
 * You can peer VPC's with others AWS accounts as well as with other VPC's in the same account.
+
+*- For option A, VPC peering connection route contains Target as pcx-xxxxxx.    
+*- For option B, the route table should contain an entry with 'vgw-xxxxx' for a VPN connection.    
+*- For option C, Direct Connect connection route too contains Target as vgw-xxxxxx.
 
 ### How to VPC Peering
 
@@ -54,6 +60,9 @@ Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolate
 
     ![nat-gateway](https://docs.aws.amazon.com/vpc/latest/userguide/images/nat-gateway-diagram.png)
 
+*- elastic ip is compulsory for NAT gateways
+
+*- AWS VGW vs DGW vs TGW
 ### [Network Access Control Lists vs Security Groups](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Security.html)
 
 ![vpc&NACL](https://docs.aws.amazon.com/vpc/latest/userguide/images/security-diagram.png)
@@ -77,11 +86,23 @@ Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolate
 VPC Flow Logs is a feature that enables you to capture information about the IP traffic going to and from network interfaces in your VPC. Flow log data can be published to Amazon CloudWatch Logs and Amazon S3. After you've created a flow log, you can retrieve and view its data in the chosen destination.
 
 ### [VPC Enpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html)
+//todo need handson// done
 
 A VPC endpoint enables you to privately connect your VPC to supported AWS services and VPC endpoint services powered by PrivateLink without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection.
 
+*- VPC Endpoint always takes precedence over NAT Gateway or Internet Gateway. In the absence of VPC endpoint, requests to S3 are routed to NAT Gateway or Internet Gateway based on their existence in route table. //vpc endpoint has a policy.
 
+*- you can't share NAT gateways,IGW across VPCs. 
 
+*- NATs allow instances with no public IPs to access the internet. 
+
+*- You can create a flow log for a VPC, a subnet, or a network interface.
+
+*- egress-only Internet gateway is a VPC component that allows outbound communication over IPv6 from instances in your VPC to the Internet, and prevents the Internet from initiating an IPv6 connection with your instances.
+
+//todo policy based vpn
+
+https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html
 
 Activity to explore:
 associate 2 sec grp to single instance with diff in and out bound rules and explore behaviour(precidence, order of association, etc )

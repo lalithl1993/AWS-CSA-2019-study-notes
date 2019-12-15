@@ -58,6 +58,7 @@ google.com.        2073    IN    NS    ns3.google.com.
 
 [...]
 ```
+TLD contains NSrocords(ns.amazon.com) from NSrecords, you can fetch SOA
 
 ### [A Record](https://www.cloudflare.com/learning/dns/dns-records/dns-a-record/)
 
@@ -107,9 +108,9 @@ In AWS you have to use ALIAS records to point your root domain to other DNS reco
 
 ## DNS IN AWS
 
-### [Routing policies available in AWS](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html)
+### [Routing policies available in AWS](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) :all policy are applied to A records only
 
-* Simple routing policy: Use for a single resource that performs a given function for your domain. You can have 1 record with multiple addresses.
+* Simple routing policy: Use for a single resource that performs a given function for your domain. You can have 1 record with multiple addresses. it randomly returns the ip addresses when quired to that dns address.
 * Weighted routing policy: Use to route traffic to multiple resources in proportions that you specify. You can send 40% of the traffic on one IP and 60% to another IP.
 * Latency routing policy: Use when you have resources in multiple AWS Regions and you want to route traffic to the region that provides the best latency.
 * Failover routing policy: Use when you want to configure active-passive failover.
