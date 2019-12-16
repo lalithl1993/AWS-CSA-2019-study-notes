@@ -71,7 +71,7 @@ Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolate
 * NACL cannot be deployed in multiple VPCs.
 * NACL cannot be attached to multiple subnets, only one at the time.
 * Each subnet must be associated with a network ACL, if you don't, default NACL will be used.
-* By default when you create one NACL, everything is denied.
+* The default network ACL is configured to allow all traffic to flow in and out of the subnets with which it is associated. 
 * Rules are applied in numerical order (starting from the lowest), so when you should create the first rule having number 100 and add others on incremental of 100 (//rule with lower number takes higher precedence)
 * NACL are **stateless** (opposite of Security Groups)
 * Remember to open [ephemaral ports](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html#nacl-ephemeral-ports) on your outbound rules only.
